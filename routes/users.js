@@ -9,6 +9,7 @@ router.get("/", util.isLoggedin, function(req, res){
   .sort({username:1})
   .exec(function(err, users){
     if(err) return res.json(err);
+    res.json(user);
     res.render("users/index", {users:users});
   });
 });
