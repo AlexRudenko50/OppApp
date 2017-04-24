@@ -101,6 +101,23 @@ hr {
 .container {
   width: auto;
 }
+
+.container-center {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	overflow: hidden;
+    width: 80%;
+}
+
+.container-center-login {
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+    width: 60%;
+}
+
 .container-alt {
   margin-left: auto;
   margin-right: auto;
@@ -1344,6 +1361,13 @@ body.fixed-left .side-menu.left {
   overflow: hidden;
   background:#f8f8ff;
 }
+
+.content-center {
+    margin: auto;
+	overflow: hidden;
+    width: 90%;
+}
+
 .content-page > .content {
   margin-bottom: 60px;
   margin-top: 60px;

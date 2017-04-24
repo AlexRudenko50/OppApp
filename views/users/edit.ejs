@@ -9,10 +9,10 @@
     <div class="container user user-edit">
 
       <div class="buttons">
-        <a class="btn btn-default" href="/users/<%= username %>">Back</a>
+        <a class="btn btn-default" href="/users/<%= email %>">Back</a>
       </div>
 
-      <form class="user-form form-horizontal" action="/users/<%= username %>?_method=put" method="post">
+      <form class="user-form form-horizontal" action="/users/<%= email %>?_method=put" method="post">
         <div class="contentBox">
           <h3 class="contentBoxTop">Edit User</h3>
           <fieldset>
@@ -26,15 +26,7 @@
               </div>
             </div>
             <hr></hr>
-            <div class="form-group <%= (errors.username)?'has-error':'' %>">
-              <label for="username" class="col-sm-3 control-label">Username*</label>
-              <div class="col-sm-9">
-                <input class="form-control" type="text" id="username" name="username" value="<%= user.username %>">
-                <% if(errors.username){ %>
-                  <span class="help-block"><%= errors.username.message %></span>
-                <% } %>
-              </div>
-            </div>
+
             <div class="form-group <%= (errors.name)?'has-error':'' %>">
               <label for="name" class="col-sm-3 control-label">Name*</label>
               <div class="col-sm-9">

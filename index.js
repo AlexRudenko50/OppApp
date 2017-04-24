@@ -5,6 +5,8 @@ var methodOverride = require("method-override");
 var flash          = require("connect-flash");
 var session        = require("express-session");
 var passport       = require("./config/passport");
+
+
 var app = express();
 
 // DB setting
@@ -16,6 +18,7 @@ db.once("open", function(){
 db.on("error", function(err){
   console.log("DB ERROR : ", err);
 });
+
 
 // Other settings
 app.set("view engine", "ejs");

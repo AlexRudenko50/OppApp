@@ -1,6 +1,7 @@
 var express = require("express");
 var router  = express.Router();
 var passport= require("../config/passport");
+var util     = require("../util");
 
 // Home
 router.get("/", function(req, res){
@@ -12,10 +13,10 @@ router.get("/about", function(req, res){
 
 // Login
 router.get("/login", function (req,res) {
-  var username = req.flash("username")[0];
+  var email = req.flash("email")[0];
   var errors = req.flash("errors")[0] || {};
   res.render("home/login", {
-    username:username,
+    email:email,
     errors:errors
   });
 });
@@ -26,10 +27,11 @@ router.post("/login",
     var errors = {};
     var isValid = true;
 
-    if(!req.body.username){
+    if(!req.body.email){
       isValid = false;
-      errors.username = "Username is required!";
+      errors.email = "email is required!";
     }
+
     if(!req.body.password){
       isValid = false;
       errors.password = "Password is required!";
@@ -38,14 +40,17 @@ router.post("/login",
     if(isValid){
       next();
     } else {
+      console.log(util.parseError(errors));
       req.flash("errors",errors);
       res.redirect("/login");
     }
   },
+
   passport.authenticate("local-login", {
     successRedirect : "/posts",
     failureRedirect : "/login"
   }
+
 ));
 
 // Logout
